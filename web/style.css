@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title {
+    color: #2c3e50;
+    font-size: 32px;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin: 20px 0;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+}
+
+.subtitle {
+    color: #2e1f17;
+    font-size: 16px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+form {
+    width: 100%;
+}
+
+.content_block {
+    color: #fff;
+    text-align: center;
+    min-width: 280px;
+    max-width: 600px;
+    width: 50%;
+    background: #34495e;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 0 auto 20px;
+}
+
+.stat_block {
+    display: none;
+}
+
+.content_block .subtitle {
+    color: #fff;
+}
+
+.btn {
+    display: block;
+    color: #fff;
+    margin: 10px auto 20px auto;
+    cursor: pointer;
+    outline: 0px;
+    font-family: 'Roboto', sans-serif;
+    border: 0;
+    background: #ee1d23;
+    border-radius: 12px;
+    height: 32px;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    width: calc(100% - 18px);
+}
+
+.input_wrapper {
+    width: 100%;
+    position: relative;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.input_file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+}
+
+.input_file_label {
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+    outline: 0px;
+    width: calc(100% - 40px);
+    border-radius: 12px;
+    border: 0;
+    margin: 20px auto;
+    color: #ffffff;
+    border: 1px dashed #fff;
+    padding: 30px 10px;
+}
+
+@media (max-width: 700px) {
+    .content_block {
+        width: 85%;
+    }
+}
