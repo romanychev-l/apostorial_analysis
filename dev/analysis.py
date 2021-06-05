@@ -1,7 +1,6 @@
 import math
 
 def get_plt():
-#f = open('100_1000.txt')
     f = open('uploads/dfs_10000_200.txt')
 
 
@@ -9,15 +8,9 @@ def get_plt():
     for line in f:
         data.append(int(line))
 
-    print("data ", data[:10])
-
-    data = data[:7000]
-#data.extend(data)
-#data = data[:00]
+    #data = data[:7000]
 
     m = len(data)
-
-    print(data[:10])
 
     fmi = 1
     fma = 200
@@ -45,7 +38,7 @@ def get_plt():
     plt.title("Гистограмма относительных частот")
     plt.xlabel("Значение ресурсоемкости")
     plt.ylabel("Частота")
-#plt.show()
+    #plt.show()
 
 
     f_t = sum(t) / m
@@ -65,24 +58,22 @@ def get_plt():
     from scipy.stats import beta
     from scipy import integrate, stats
 
+    '''
+    q = beta.ppf(0.5 + 0.95 / 2, al, be) - beta.ppf(0.5 - 0.95 / 2, al, be)
 
+    fq = fmi + q * (fma - fmi)
 
-#q = beta.ppf(0.5 + 0.95 / 2, al, be) - beta.ppf(0.5 - 0.95 / 2, al, be)
+    Q.append(q)
 
-#fq = fmi + q * (fma - fmi)
-
-#Q.append(q)
-
-
-#x = np.linspace(beta.ppf(0, al, be), beta.ppf(1, al, be), k)
-
+    x = np.linspace(beta.ppf(0, al, be), beta.ppf(1, al, be), k)
+    '''
     print(x)
 
     p = beta.pdf(x, al, be)
     plt.plot(x, p, 'r-', lw=2, alpha=0.6, label='beta pdf')
 
-#plt.plot(t, y)
-#plt.show()
+    #plt.plot(t, y)
+    #plt.show()
     plt.savefig('images/img.jpg', dpi=300, bbox_inches='tight')
 
     p = [integrate.quad(lambda _x : beta.pdf(_x, al, be), x[i], x[i+1])[0]
