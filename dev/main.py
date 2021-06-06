@@ -3,6 +3,7 @@ from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
 import analysis
+import gist
 import base64
 
 
@@ -29,14 +30,20 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             try:
-                analysis.get_plt()
+                x_2 = gist.get_plt()
+                analysis.get_graph()
             except Exception as e:
                 print('e', e)
 
             with open("images/img.jpg", "rb") as img_file:
                 img = base64.b64encode(img_file.read())
                 #print(img)
-        return jsonify({'base64': img.decode('utf-8')})
+            with open("images/img2.jpg", "rb") as img_file:
+                img2 = base64.b64encode(img_file.read())
+
+        return jsonify({'base64_1': img.decode('utf-8'),
+                        'base64_2': img2.decode('utf-8'),
+                        'xi_2': str(x_2)})
     except Exception as e:
         print(e)
         return jsonify({'server': 'error'}), 400
