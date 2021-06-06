@@ -1,0 +1,54 @@
+% ОБЯЗАТЕЛЬНО ИМЕННО ТАКОЙ documentclass!
+% (Основной кегль = 14pt, поэтому необходим extsizes)
+% Формат, разумеется, А4
+% article потому что стандарт не подразумевает разделов
+% Глава = section, Параграф = subsection
+% (понятия "глава" и "параграф" из стандарта)
+\documentclass[a4paper,article,14pt]{extarticle}
+
+% Подключаем главный пакет со всем необходимым
+\usepackage{spbudiploma}
+
+% Пакеты по желанию (самые распространенные)
+% Хитрые мат. символы
+\usepackage{euscript}
+% Таблицы
+\usepackage{longtable}
+\usepackage{makecell}
+% Картинки (можно встявлять даже pdf)
+\usepackage[pdftex]{graphicx}
+
+\usepackage{amsthm,amssymb, amsmath}
+\usepackage{textcomp}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+
+
+\begin{document}
+
+% Титульник в файле titlepage.tex
+\input{titlepage_example.tex}
+
+% Содержание
+\tableofcontents
+\pagebreak
+
+\input{introduction.tex}
+
+\input{formulation_of_the_problem.tex}
+
+\input{literature_review.tex}
+
+\input{main_part.tex}
+
+\input{conclusions.tex}
+
+\input{conclusion.tex}
+
+% Библиография в cpsconf стиле
+% Аргумент {1} ниже включает переопределенный стиль с выравниванием слева
+
+\input{literature.tex}
+
+\end{document}
